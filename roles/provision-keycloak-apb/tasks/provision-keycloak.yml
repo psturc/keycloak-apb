@@ -87,6 +87,7 @@
       mobile: enabled
     to_name: keycloak
     spec_port_target_port: web
+  register: keycloak_route
   when: keycloak_protocol == 'http'
 
 - name: create keycloak https route
@@ -101,6 +102,7 @@
     tls_insecure_edge_termination_policy: Redirect
     to_name: keycloak
     spec_port_target_port: web
+  register: keycloak_route
   when: keycloak_protocol == 'https'
 
 - name: "Retrieve route to keycloak"
